@@ -1,4 +1,7 @@
 .env
 error.log
 
+
+/dist
 /node_modules
+/build
