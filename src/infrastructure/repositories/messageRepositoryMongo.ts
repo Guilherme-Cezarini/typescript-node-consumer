@@ -12,7 +12,10 @@ export class MessageRepositoryMongo implements MessageRepository {
     async save(message: Message): Promise<void> {
         await this.collection.insertOne({
             content: message.content,
-            timestamp: message.timestamp
+            company_id: message.company_id,
+            campaign_id: message.campaign_id,
+            created_at: message.created_at,
+            updated_at: message.updated_at
         });
     }
 }

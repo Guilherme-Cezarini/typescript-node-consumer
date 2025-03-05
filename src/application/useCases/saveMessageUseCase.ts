@@ -7,7 +7,7 @@ export class SaveMessageUseCase {
     async execute(
         content: any,
     ): Promise<void> {
-        const message = new Message(content.phone_number, content.message, content.ompany_id, content.campaign_id, new Date());
+        const message = new Message(content.phone_number, content.message, content.company_id, content.campaign_id, new Date(content.created_at), new Date(content.updated_at));
         await this.messageRepository.save(message);
     }
 }

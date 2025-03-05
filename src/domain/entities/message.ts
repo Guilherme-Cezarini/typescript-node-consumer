@@ -4,7 +4,8 @@ export class Message {
         public readonly content: string,
         public readonly company_id: string,
         public readonly campaign_id: string,
-        public readonly timestamp: Date
+        public readonly created_at: Date,
+        public readonly updated_at: Date
         
     ) {}
 }

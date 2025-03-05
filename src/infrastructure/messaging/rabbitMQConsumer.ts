@@ -25,11 +25,12 @@ export class RabbitMQConsumer {
             this.channel.consume(this.queue, async (msg) => {
                 if (msg !== null) {
                     try {
-                        const content = msg.content.toString();
+                        const content = JSON.parse(msg.content.toString());
+                        
                         await this.saveMessageUseCase.execute(content);
                         
                         this.channel!.ack(msg);
-                        logger.info(`Message processed and acknowledged: ${content}`);
+                        logger.info(`Message processed and acknowledged: ${JSON.stringify(content)}`);
                     } catch (error) {
                         logger.error(`Failed to process message: ${this.getErrorMessage(error)}`);
                         this.channel!.nack(msg, false, true); 
