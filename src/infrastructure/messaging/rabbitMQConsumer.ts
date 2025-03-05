@@ -19,7 +19,10 @@ export class RabbitMQConsumer {
 
             this.channel = await this.connection.createChannel();
 
-            await this.channel.checkQueue(this.queue);
+            
+            await this.channel.assertQueue(this.queue, {
+                durable: false, 
+            });
 
             logger.info('Consumer started and waiting for messages...');
             this.channel.consume(this.queue, async (msg) => {
