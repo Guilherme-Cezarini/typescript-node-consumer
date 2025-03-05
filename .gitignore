@@ -1,5 +1,6 @@
 .env
 error.log
+combined.log
 
 
 /dist
