@@ -1,13 +1,13 @@
 # TypeScript RabbitMQ Consumer
 
-Este projeto é um consumer de mensagens do RabbitMQ escrito em TypeScript utilizando Node.js. As mensagens recebidas são armazenadas em um banco de dados MongoDB. O serviço é executado como um processo independente e espera que o RabbitMQ já esteja rodando.
+Este projeto é um consumer de mensagens do RabbitMQ escrito em TypeScript utilizando Node.js. As mensagens recebidas são armazenadas em um banco de dados MongoDB.
 
 ## Requisitos
 
 - Node.js (recomendado: versão mais recente LTS)
 - npm ou yarn
 - Docker e Docker Compose
-- RabbitMQ rodando previamente
+- RabbitMQ 
 
 ## Configuração
 
@@ -33,8 +33,7 @@ cp .env.example .env
    docker-compose up -d
    ```
 
-3. Certifique-se de que o RabbitMQ já está rodando.
-4. Execute a aplicação:
+3. Execute a aplicação:
 
    ```sh
    npm run start
@@ -42,8 +41,7 @@ cp .env.example .env
 
 ## Considerações
 
-- A aplicação **não inicia o RabbitMQ**, ele deve estar rodando previamente.
-- O MongoDB é iniciado via Docker Compose.
+- O MongoDB e RabbitMQ é iniciado via Docker Compose.
 - Utilize o `.env` para definir as credenciais e conexões necessárias.
 
 
